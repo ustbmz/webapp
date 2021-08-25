@@ -1,0 +1,23 @@
+const INIT_WEBSOCKET = 'INIT_WEBSOCKET'
+
+const SET_SID = 'SET_SID'
+
+const SET_TOKEN = 'SET_TOKEN'
+
+const SET_USER = 'SET_USER'
+
+const SET_ISLOGIN = 'SET_ISLOGIN'
+
+const SET_HIDE = 'SET_HIDE'
+
+const SET_MSG = 'SET_MSG'
+
+export {
+  INIT_WEBSOCKET,
+  SET_SID,
+  SET_TOKEN,
+  SET_USER,
+  SET_ISLOGIN,
+  SET_HIDE,
+  SET_MSG
+}
