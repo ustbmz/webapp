@@ -3,9 +3,11 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 
-import { Cell } from 'mint-ui'
+import 'normalize.css/normalize.css'
 
-Vue.component(Cell.name, Cell)
+import '@/plugins/mint-ui'
+import '@/plugins/common'
+import '@/assets/styles/theme.scss'
 
 Vue.config.productionTip = false
 
