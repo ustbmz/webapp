@@ -12,8 +12,16 @@ const routes = [
     component: Home,
     children: [
       {
-        path: '/:catalog',
-        component: Catalog
+        path: '/',
+        name: 'catalog',
+        component: Catalog,
+        props: true
+      },
+      {
+        path: '/index/:catalog',
+        name: 'catalog',
+        component: Catalog,
+        props: true
       }
     ]
   }
