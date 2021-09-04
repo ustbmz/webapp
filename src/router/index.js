@@ -7,15 +7,16 @@ Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/',
-    name: 'Home',
+    path: '',
     component: Home,
+    name: 'home',
+    // 修复默认路由
+    redirect: '/index',
     children: [
       {
-        path: '/',
-        name: 'catalog',
-        component: Catalog,
-        props: true
+        path: '/index',
+        name: 'index',
+        component: Catalog
       },
       {
         path: '/index/:catalog',

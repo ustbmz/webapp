@@ -1,7 +1,10 @@
-
 <template>
   <div class="list">
-    <div class="page-loadmore-wrapper" ref="wrapper" :style="{ height: wrapperHeight + 'px' }">
+    <div
+      class="page-loadmore-wrapper"
+      ref="wrapper"
+      :style="{ height: wrapperHeight + 'px' }"
+    >
       <mt-loadmore
         :bottomMethod="loadBottom"
         :bottomAllLoaded="isEnd"
@@ -17,21 +20,26 @@
       >
         <slot></slot>
         <div slot="top" class="mint-loadmore-top">
-          <span v-show="topStatus !== 'loading'" :class="{ 'is-rotate': topStatus === 'drop' }">↓</span>
+          <span
+            v-show="topStatus !== 'loading'"
+            :class="{ 'is-rotate': topStatus === 'drop' }"
+            >↓</span
+          >
           <span v-show="topStatus === 'loading' && showSpin">
             <mt-spinner :type="spinType"></mt-spinner>
           </span>
-          <span class="text">{{bottomLoadingText}}</span>
+          <span class="text">{{ bottomLoadingText }}</span>
         </div>
         <div slot="bottom" class="mint-loadmore-bottom">
           <span
             v-show="bottomStatus !== 'loading'"
             :class="{ 'is-rotate': bottomStatus === 'drop' }"
-          >↑</span>
+            >↑</span
+          >
           <span v-show="bottomStatus === 'loading' && showSpin">
             <mt-spinner :type="spinType"></mt-spinner>
           </span>
-          <span class="text">{{bottomLoadingText}}</span>
+          <span class="text">{{ bottomLoadingText }}</span>
         </div>
       </mt-loadmore>
     </div>
@@ -57,7 +65,7 @@ export default {
     },
     distance: {
       type: Number,
-      default: 56
+      default: 0
     },
     topDistance: {
       type: Number,
@@ -79,18 +87,27 @@ export default {
       type: Boolean,
       default: false
     },
-    lists: {
+    list: {
       type: Array,
       default: () => []
     }
   },
   data () {
     return {
-      list: [],
       topStatus: '',
       bottomStatus: '',
       wrapperHeight: 0
       // allLoaded: false
+    }
+  },
+  watch: {
+    distance () {
+      this.$nextTick(() => {
+        this.wrapperHeight =
+          document.documentElement.clientHeight -
+          this.$refs.wrapper.getBoundingClientRect().top -
+          this.distance
+      })
     }
   },
   methods: {
@@ -101,16 +118,22 @@ export default {
       this.bottomStatus = status
     },
     loadTop () {
-      this.$emit('on-loadTop')
-      setTimeout(() => {
-        this.$refs.loadmore.onTopLoaded()
-      }, 2000)
+      this.$emit('on-loadTop', this.endTopLoaded)
+      // setTimeout(() => {
+      //   this.$refs.loadmore.onTopLoaded()
+      // }, 2000)
+    },
+    endTopLoaded () {
+      this.$refs.loadmore.onTopLoaded()
     },
     loadBottom () {
-      this.$emit('on-loadBottom')
-      setTimeout(() => {
-        this.$refs.loadmore.onBottomLoaded() // 固定方法，查询完要调用一次，用于重新定位
-      }, 1500)
+      this.$emit('on-loadBottom', this.endBottomLoaded)
+      // setTimeout(() => {
+      //   this.$refs.loadmore.onBottomLoaded() // 固定方法，查询完要调用一次，用于重新定位
+      // }, 1500)
+    },
+    endBottomLoaded () {
+      this.$refs.loadmore.onBottomLoaded()
     }
   },
   mounted () {
@@ -123,10 +146,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-body {
-  margin: 0;
-  background-color: #fafafa;
-}
+// body {
+//   margin: 0;
+//   background-color: #fafafa;
+// }
 ul,
 li {
   padding: 0;
