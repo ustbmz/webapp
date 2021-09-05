@@ -1,5 +1,5 @@
 <template>
-  <div class="wrapper">
+  <div>
     <slot></slot>
     <my-footer></my-footer>
   </div>
@@ -16,7 +16,4 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.wrapper {
-  padding-bottom: $footer-height;
-}
 </style>

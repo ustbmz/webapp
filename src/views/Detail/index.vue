@@ -183,7 +183,6 @@ p {
     }
   }
   .detail-info-body {
-    padding-bottom: 46px;
     color: #666;
     word-break: break-all;
     word-wrap: break-word;
@@ -275,7 +274,6 @@ p {
 
 .comments {
   background-color: #fff;
-  padding-bottom: $footer-height;
   .title {
     padding: 20px 30px 0 30px;
   }

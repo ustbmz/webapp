@@ -1,6 +1,6 @@
 <template>
   <div>
-    <layout>
+    <layout class="main-layout">
       <search></search>
       <tabs></tabs>
       <router-view></router-view>
@@ -19,4 +19,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
 </style>
