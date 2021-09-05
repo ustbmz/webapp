@@ -14,6 +14,7 @@
 </template>
 
 <script>
+
 export default {
   name: 'search',
   props: {
@@ -28,8 +29,8 @@ export default {
     }
   },
   mounted () {
-    // const elem = this.$refs.search
-    // window.forbidScroll(elem)
+    const elem = this.$refs.search
+    window.forbidScroll(elem)
   },
   methods: {
     onClear () {

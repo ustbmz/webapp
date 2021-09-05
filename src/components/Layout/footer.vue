@@ -29,8 +29,8 @@ export default {
     }
   },
   mounted () {
-    // const elem = this.$refs.footer
-    // window.forbidScroll(elem)
+    const elem = this.$refs.footer
+    window.forbidScroll(elem)
   }
 }
 </script>

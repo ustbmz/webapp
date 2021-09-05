@@ -4,8 +4,18 @@
   </div>
 </template>
 
+<script>
+import { forbidScroll } from '@/utils/forbidScroll'
+
+export default {
+  mounted () {
+    window.forbidScroll = forbidScroll
+  }
+}
+</script>
+
 <style lang="scss">
-img{
+img {
   vertical-align: middle;
   max-width: 100%;
 }

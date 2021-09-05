@@ -29,8 +29,8 @@ export default {
     }
   },
   mounted () {
-    // const elem = this.$refs.tabs
-    // window.forbidScroll(elem)
+    const elem = this.$refs.tabs
+    window.forbidScroll(elem)
   }
 }
 </script>
