@@ -11,6 +11,8 @@
           v-for="(item, index) in lists"
           :key="'catalog' + index"
           :item="item"
+          @on-show-detail="goDetai"
+          @on-show-use="goDetai"
         >
         </list-item>
       </ul>
@@ -23,7 +25,7 @@ import { getList } from '@/api/content'
 import ListItem from '@/components/ListItem'
 
 export default {
-  props: ['catalog'],
+  props: ['catalog', 'id'],
   data () {
     return {
       page: 0,
@@ -40,7 +42,8 @@ export default {
   },
   mounted () {
     window.vue = this
-    this.footerHeight = document.getElementsByClassName('layout-footer')[0].offserHeight
+    this.footerHeight =
+      document.getElementsByClassName('layout-footer')[0].offserHeight
     this._getList()
   },
   watch: {
@@ -51,6 +54,9 @@ export default {
     }
   },
   methods: {
+    goDetai (tid) {
+      this.$router.push({ name: 'detail', params: { tid: tid } })
+    },
     init () {
       this.page = 0
       if (typeof this.handle === 'function') {
@@ -71,14 +77,6 @@ export default {
       this.init()
     },
     _getList () {
-      console.log(
-        '🚀 ~ file: catalog.vue ~ line 59 ~ _getList ~ this.isRepeat',
-        this.isRepeat
-      )
-      console.log(
-        '🚀 ~ file: catalog.vue ~ line 59 ~ _getList ~ this.isEnd',
-        this.isEnd
-      )
       if (this.isEnd) return
       if (this.isRepeat) return
       getList({

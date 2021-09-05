@@ -50,7 +50,6 @@ export default {
   },
   methods: {
     goback () {
-      alert('goback')
       if (this.back) {
         this.back()
         return

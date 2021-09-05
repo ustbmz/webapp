@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home'
 import Catalog from '../views/Home/catalog.vue'
+import Detail from '../views/Detail'
 
 Vue.use(VueRouter)
 
@@ -25,6 +26,12 @@ const routes = [
         props: true
       }
     ]
+  },
+  {
+    path: '/detail/:tid',
+    name: 'detail',
+    // meta: { requiresAuth: true },
+    component: Detail
   }
 ]
 
