@@ -30,7 +30,13 @@ export default {
   },
   mounted () {
     const elem = this.$refs.footer
-    window.forbidScroll(elem)
+    elem.addEventListener(
+      'touchmove',
+      (evt) => {
+        evt.preventDefault()
+      },
+      { passive: false }
+    )
   }
 }
 </script>

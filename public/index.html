@@ -1,17 +1,40 @@
 <!DOCTYPE html>
 <html lang="">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
-    <title><%= htmlWebpackPlugin.options.title %></title>
-  </head>
-  <body>
-    <noscript>
-      <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
-    </noscript>
-    <div id="app"></div>
-    <!-- built files will be auto injected -->
-  </body>
+
+<head>
+  <meta charset="utf-8">
+  <!-- meta 参数说明 使用IE最新的版本进行渲染 -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!-- meta 参数说明 minimum-scale 最小缩放级别 -->
+  <!-- meta 参数说明 maximum-scale 最大缩放级别 -->
+  <!-- meta 参数说明 user-scable 用户双手缩放 ：no 禁止 -->
+  <meta name="viewport"
+    content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scable=no">
+  <!-- meta 参数说明 HandheldFriendly 针对用户手持设备 不识别viewport所作的设置 老旧机型 例如黑莓 -->
+  <meta name="HandheldFriendly" content="true">
+  <!-- meta 参数说明 apple-mobile-web-app-capable 如果为ios设备，全屏模式下不启用工具栏及菜单栏 -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <!-- meta 参数说明 apple-touch-fullscreen ios设备webapp模式下，全屏进行展示 -->
+  <meta name="apple-touch-fullscreen" content="yes">
+  <!-- meta 参数说明 app-mobile-web-app-title ios设备展示的title -->
+  <meta name="app-mobile-web-app-title" content="西蒙社区">
+  <!-- meta 参数说明 apple-touch-fullscreen ios设备webapp模式下，顶部栏颜色为黑色 -->
+  <meta name="appp-mobile-web-app-status-bar-style" content="black">
+  <!-- meta 参数说明 formate-detectio 禁止可点击电话与邮箱 -->
+  <meta name="formate-detection" content="telphone=no,email=no">
+  <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+  <title>
+    <%= htmlWebpackPlugin.options.title %>
+  </title>
+</head>
+
+<body>
+  <noscript>
+    <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled.
+        Please enable it to continue.</strong>
+  </noscript>
+  <div id="app"></div>
+  <!-- built files will be auto injected -->
+</body>
+
 </html>

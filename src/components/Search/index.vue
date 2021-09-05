@@ -30,7 +30,9 @@ export default {
   },
   mounted () {
     const elem = this.$refs.search
-    window.forbidScroll(elem)
+    elem.addEventListener('touchmove', (evt) => {
+      evt.preventDefault()
+    }, { passive: false })
   },
   methods: {
     onClear () {
