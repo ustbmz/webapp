@@ -3,10 +3,10 @@ import Vue from 'vue'
 
 // Vue.component('my-header', Header)
 
-const componentsContext = require.context('@/components', true, /index.vue$/)
+const componentsContext = require.context('@/components', true, /.vue$/)
 console.log('componentsContext', componentsContext)
 componentsContext.keys().forEach((component) => {
-  const componentsConfig = componentsContext(component).default
-  console.log('componentsConfig', componentsConfig)
-  Vue.component(componentsConfig.name, componentsConfig)
+  const componentConfig = componentsContext(component).default
+  console.log('componentsConfig', componentConfig)
+  Vue.component(componentConfig.name, componentConfig)
 })

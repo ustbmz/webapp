@@ -81,4 +81,14 @@ pre {
   border: none;
   border-left: 5px solid #ddd;
 }
+
+.input-wrap{
+  .code{
+    height: 80px;
+  }
+  svg{
+    width: 240px;
+    height: 70px;
+  }
+}
 </style>

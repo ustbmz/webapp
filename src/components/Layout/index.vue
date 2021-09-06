@@ -6,12 +6,8 @@
 </template>
 
 <script>
-import Footer from './footer'
 export default {
-  name: 'Layout',
-  components: {
-    'my-footer': Footer
-  }
+  name: 'Layout'
 }
 </script>
 

@@ -1,11 +1,3 @@
-/*
- * @Author: Mew
- * @Date: 2021-08-25 10:51:29
- * @LastEditTime: 2021-08-25 14:48:48
- * @Description:
- * @FilePath: \webapp\src\store\modules\user.js
- */
-
 import {
   SET_SID,
   SET_TOKEN,
@@ -15,10 +7,11 @@ import {
   SET_MSG
 } from '../mutation-types'
 
-import { getCode } from '@/api/login'
+import { getCode, login } from '@/api/login'
 import { v4 as uuidv4 } from 'uuid'
 
 export default {
+  namespaced: true,
   state: {
     sid: '',
     isLogin: false,
@@ -39,7 +32,6 @@ export default {
     },
     // 设置用户的基本信息
     [SET_USER] (state, value) {
-      if (value === '') return
       state.userInfo = value
       // 本地存储用户的基本信
       localStorage.setItem('userInfo', JSON.stringify(value))
@@ -56,7 +48,7 @@ export default {
     }
   },
   getters: {
-    user: state => state.userinfo,
+    user: state => state.userInfo,
     isLogin: state => state.isLogin,
     token: state => state.token,
     sid: state => state.sid,
@@ -66,7 +58,7 @@ export default {
     message ({ commit }, msg) {
       commit('setMessage', msg)
     },
-    async _getCode ({ commit }) {
+    async getCode ({ commit }) {
       let sid = ''
       if (localStorage.getItem('sid')) {
         sid = localStorage.getItem('sid')
@@ -77,10 +69,23 @@ export default {
 
       commit('SET_SID', sid)
       const result = await getCode(sid)
-      if (result.code === 200) {
-        return result.data
+      return result
+    },
+    async login ({ commit, state }, payload) {
+      const result = await login({
+        ...payload,
+        sid: state.sid
+      })
+      if (result.code === 200 && result.token) {
+        const user = result.data
+        user.username = payload.username
+        commit('SET_TOKEN', result.token)
+        commit('SET_USER', user)
+        alert(JSON.stringify(user))
+        commit('SET_ISLOGIN', true)
       }
       return result
     }
   }
+
 }

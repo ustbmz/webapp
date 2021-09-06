@@ -6,7 +6,7 @@
       <div class="detail-info">
         <div class="detail-info-head">
           <div class="avatar">
-            <img :src="page.user ? page.user.pic : '/public/img/user.jpeg'" />
+            <img :src="page.user ? page.user.pic : ''" />
           </div>
           <div class="cont">
             <div class="name">{{ page.user ? page.user.name : '' }}</div>
@@ -32,7 +32,7 @@
               <div class="detail-info-head">
                 <div class="avatar">
                   <img
-                    :src="item.cuid ? item.cuid.pic : '/public/img/user.jpeg'"
+                    :src="item.cuid ? item.cuid.pic : ''"
                   />
                 </div>
                 <div class="cont">
