@@ -188,7 +188,6 @@ p {
     word-wrap: break-word;
     line-height: 55px;
     font-size: 30px;
-    overflow-x: hidden;
     img {
       max-width: 100%;
     }
@@ -281,12 +280,16 @@ p {
     font-size: 26px;
     color: #999;
     text-align: center;
+    margin-bottom: 400px;
   }
   .comments-list {
     margin: 0 0 20px 0;
     padding: 20px 30px 0 30px;
     .item {
       padding: 10px 0 28px 0;
+      &:last-child{
+        margin-bottom: 300px;
+      }
     }
     .hands {
       padding-right: 10px;
@@ -332,7 +335,6 @@ p {
       word-wrap: break-word;
       line-height: 55px;
       font-size: 30px;
-      overflow-x: hidden;
       img {
         max-width: 100%;
       }
