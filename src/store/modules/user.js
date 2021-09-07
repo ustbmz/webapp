@@ -81,7 +81,6 @@ export default {
         user.username = payload.username
         commit('SET_TOKEN', result.token)
         commit('SET_USER', user)
-        alert(JSON.stringify(user))
         commit('SET_ISLOGIN', true)
       }
       return result

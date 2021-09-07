@@ -123,6 +123,7 @@ export default {
   methods: {
     goTo (name) {
       console.log('🚀 ~ file: user.vue ~ line 121 ~ goTo ~ name', name)
+      this.$Toast('假的，别点了~ 懒得搞了')
     }
   },
   computed: {
