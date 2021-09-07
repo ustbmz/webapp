@@ -91,4 +91,16 @@ pre {
     height: 70px;
   }
 }
+
+ul,
+li{
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+a{
+  color: #999;
+  text-decoration: none;
+}
 </style>

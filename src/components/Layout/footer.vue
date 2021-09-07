@@ -23,7 +23,7 @@ export default {
       tabs: [
         { name: '首页', icon: 'home', path: '/index' },
         { name: '消息', icon: 'msg', path: '/msg/reply' },
-        { name: '热门', icon: 'type', path: '/hot' },
+        { name: '热门', icon: 'type', path: '/hot/post' },
         { name: '我的', icon: 'person', path: '/user' }
       ]
     }
