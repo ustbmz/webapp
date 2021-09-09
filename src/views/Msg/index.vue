@@ -167,10 +167,11 @@ export default {
   .post-title {
     font-size: 26px;
     font-weight: bold;
-    padding-bottom: 10px;
+    padding-bottom: 20px;
   }
   .desc {
     font-size: 20px;
+    line-height: 30px;
     color: #666;
     text-overflow: ellipsis;
     overflow: hidden;
