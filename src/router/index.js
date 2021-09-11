@@ -35,13 +35,16 @@ const routes = [
       {
         path: '/index',
         name: 'index',
-        component: Catalog
+        component: Catalog,
+        meta: { index: 0 }
+
       },
       {
         path: '/index/:catalog',
         name: 'catalog',
         component: Catalog,
-        props: true
+        props: true,
+        meta: { index: 0 }
       }
     ]
   },
