@@ -27,7 +27,7 @@ class HttpRequest {
     // 发送请求拦截
     instance.interceptors.request.use(
       (config) => {
-        const token = store.state.token
+        const token = store.state.user.token
         if (token) {
           config.headers.Authorization = 'Bearer ' + token
         }

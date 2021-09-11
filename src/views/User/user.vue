@@ -11,7 +11,8 @@
               <router-link :to="{ name: 'login' }">登录</router-link>
             </p>
             <p class="fav">
-              <svg-icon icon="fav2" class="icon-fav"></svg-icon>用户积分 {{user.favs}}
+              <svg-icon icon="fav2" class="icon-fav"></svg-icon>用户积分
+              {{ user.favs }}
             </p>
           </div>
           <router-link class="link" :to="{ name: 'user' }"
@@ -60,6 +61,10 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import store from '@/store'
+import { SET_ISLOGIN, SET_USER, SET_TOKEN } from '@/store/mutation-types'
+
+import { MessageBox } from 'mint-ui'
 export default {
   name: 'user',
   data () {
@@ -73,7 +78,7 @@ export default {
         {
           name: '修改设置',
           icon: 'icon-setting',
-          routeName: 'settings'
+          routeName: 'edit'
         },
         {
           name: '修改密码',
@@ -91,9 +96,9 @@ export default {
           routeName: '404'
         },
         {
-          name: '赞助商',
+          name: '退出登录',
           icon: 'icon-jiangbei',
-          routeName: '404'
+          routeName: 'logout'
         }
       ],
       routes: [
@@ -123,7 +128,34 @@ export default {
   methods: {
     goTo (name) {
       console.log('🚀 ~ file: user.vue ~ line 121 ~ goTo ~ name', name)
-      this.$Toast('假的，别点了~ 懒得搞了')
+      if (name === 'logout') {
+        this.logout()
+      } else if (name === 'edit') {
+        this.$router.push({ name: name })
+      } else {
+        this.$Toast('开发中...')
+      }
+    },
+    logout () {
+      if (!this.isLogin) {
+        this.$Toast('你还未进行登录')
+        return
+      }
+      MessageBox.confirm('确认退出登录吗？')
+        .then(({ value, action }) => {
+          store.commit('user/' + SET_ISLOGIN, false)
+          store.commit('user/' + SET_USER, '')
+          store.commit('user/' + SET_TOKEN, '')
+          localStorage.clear()
+          setTimeout(() => {
+            this.$Toast('成功登出')
+
+            this.$router.push({ name: 'home' })
+          }, 1000)
+        })
+        .catch((cancel) => {
+          console.log(cancel)
+        })
     }
   },
   computed: {

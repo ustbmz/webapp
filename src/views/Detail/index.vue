@@ -93,6 +93,9 @@ export default {
     }
   },
   mounted () {
+
+  },
+  created () {
     this._getPostDetail()
     this._getComments()
   },

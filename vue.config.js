@@ -3,8 +3,10 @@ const path = require('path')
 const resolve = (dir) => path.join(__dirname, dir)
 // vue.config.js
 module.exports = {
+  productionSourceMap: false,
   chainWebpack: config => {
     // GraphQL Loader
+
     const svgRule = config.module.rule('svg')
 
     // 清除已有的所有 loader。

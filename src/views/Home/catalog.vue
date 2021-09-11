@@ -34,7 +34,7 @@ export default {
       isEnd: false,
       isRepeat: false,
       handle: '',
-      footerHeight: 0
+      footerHeight: 51
     }
   },
   components: {
@@ -42,8 +42,6 @@ export default {
   },
   mounted () {
     window.vue = this
-    this.footerHeight =
-      document.getElementsByClassName('layout-footer')[0].offserHeight
     this._getList()
   },
   watch: {
@@ -54,6 +52,10 @@ export default {
     }
   },
   methods: {
+    initHeight () {
+      this.footerHeight =
+        document.getElementsByClassName('layout-footer')[0].offserHeight
+    },
     goDetai (tid) {
       this.$router.push({ name: 'detail', params: { tid: tid } })
     },
@@ -99,6 +101,7 @@ export default {
           if (typeof this.handle === 'function') {
             this.handle()
           }
+          this.initHeight()
         })
         .catch((err) => {
           this.isRepeat = false
@@ -116,5 +119,8 @@ ul {
   padding: 0;
   margin: 0;
   background-color: #f3f6f8;
+}
+.content {
+  min-height: 100%;
 }
 </style>
