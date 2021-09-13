@@ -1,10 +1,18 @@
-# 全栈开发之webapp 论坛项目H5页面手机端实现
+# 全栈实践 - 论坛项目H5页面手机端实现
 
-预览地址: http://121.36.201.245:13006
+**使用 vue + mint-ui + webpack + docker ，实现自动化构建部署**
 
-## 使用 mint-ui 框架
+预览地址: http://www.ustbmz.com:13006/
 
-### 部分功能未开发，逻辑层重复，不予实现
+
+
+![image-20210913091503668](https://gitee.com/cnmz/images/raw/master/mdpic/image-20210913091503668.png)
+
+
+
+**部分功能未开发，逻辑层重复，不予实现**
+
+
 
 
 
