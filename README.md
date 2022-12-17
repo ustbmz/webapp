@@ -4,6 +4,5 @@
 
 预览地址: https://webapp.ustbmz.com
 
-![image-20210913091503668](https://gitee.com/cnmz/images/raw/master/mdpic/image-20210913091503668.png)
 
 **部分功能未开发，逻辑层重复，不继续实现**
